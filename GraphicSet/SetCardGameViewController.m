@@ -10,6 +10,7 @@
 #import "SetCardView.h"
 #import "SetCardDeck.h"
 #import "SetCardViewCell.h"
+#import "SetCardSummaryViewCell.h"
 
 @interface SetCardGameViewController ()
 
@@ -42,9 +43,13 @@
     return CARDS_TO_START;
 }
 
+- (BOOL)supportsSummary {
+    return TRUE;
+}
+
 - (void)defineGame:(CardMatchingGame *)game {
     game.mismatchPenalty = 2;
-    game.matchBonus = 6;
+    game.matchBonus = 2;
     game.flipCost = 1;
     game.numberOfMatches = 3;
     game.name = @"Set";
@@ -61,8 +66,22 @@
             SetCard *setCard = (SetCard *)card;
             [self assignCard:setCard toCardView:setCardView];
             setCardView.faceUp = setCard.isFaceUp;
-            setCardView.alpha = setCard.isUnplayable ? 0.3 : 1.0;
         }
+    }
+}
+
+- (void)updateCell:(UICollectionViewCell *)cell usingCards:(NSArray *)cards {
+    if ([cell isKindOfClass:[SetCardSummaryViewCell class]]) {
+        SetCardSummaryViewCell *setCardSummyView = (SetCardSummaryViewCell *)cell;
+        NSArray *viewCells = @[setCardSummyView.card1View, setCardSummyView.card2View, setCardSummyView.card3View];
+        [cards enumerateObjectsUsingBlock:^(Card *card, NSUInteger idx, BOOL *stop) {
+            if ([card isKindOfClass:[SetCard class]]) {
+                SetCard *setCard = (SetCard *)card;
+                SetCardView *setCardView = (SetCardView *)viewCells[idx];
+                [self assignCard:setCard toCardView:setCardView];
+                setCardView.faceUp = NO;    // don't want the highlight
+            }
+        }];
     }
 }
 
@@ -77,8 +96,8 @@
     switch (game.gameStatus) {
         case STATUS_FLIPPED: self.statusLabel.text = @"Flipped up card"; break;
         case STATUS_MISMATCH: self.statusLabel.text = [NSString stringWithFormat:@"Mismatched cards!  %d point penalty!", game.mismatchPenalty]; break;
-        case STATUS_MATCH2: self.statusLabel.text = [NSString stringWithFormat:@"Matched card set for %d points!", 4 * game.matchBonus]; break;
-        case STATUS_MATCH1: self.statusLabel.text = [NSString stringWithFormat:@"Matched suits for %d points!", game.matchBonus]; break;
+        case STATUS_MATCH2: 
+        case STATUS_MATCH1: self.statusLabel.text = [NSString stringWithFormat:@"Matched card set for %d points!", 6 * game.matchBonus]; break;
         case STATUS_NONE: self.statusLabel.text = @"Welcome to Set! Three cards in a set score."; break;
         default: self.statusLabel.text = @"Illegal Status!!"; break;
     }

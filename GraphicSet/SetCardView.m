@@ -28,9 +28,9 @@
     CGContextClosePath(context);
     CGContextSaveGState(context);
     if (self.fill == FILL_STRIPED) [self setPatternFill:context];
+    else if (self.fill == FILL_OPEN) CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
     CGContextSetLineWidth(context, OUTLINE_WIDTH);
-    if (self.fill == FILL_OPEN) CGContextDrawPath(context, kCGPathStroke);
-    else CGContextDrawPath(context, kCGPathFillStroke);
+    CGContextDrawPath(context, kCGPathFillStroke);
     CGContextRestoreGState(context);
 }
 
@@ -48,9 +48,9 @@
     CGContextClosePath(context);
     CGContextSaveGState(context);
     if (self.fill == FILL_STRIPED) [self setPatternFill:context];
+    else if (self.fill == FILL_OPEN) CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
     CGContextSetLineWidth(context, OUTLINE_WIDTH);
-    if (self.fill == FILL_OPEN) CGContextDrawPath(context, kCGPathStroke);
-    else CGContextDrawPath(context, kCGPathFillStroke);
+    CGContextDrawPath(context, kCGPathFillStroke);
     CGContextRestoreGState(context);
 }
 
@@ -65,7 +65,8 @@ void MyDrawPattern (void *info, CGContextRef context) {
     CGContextClosePath(context);
     CGContextSetLineWidth(context, 1.0);
     CGContextSetStrokeColorWithColor(context, drawColour.CGColor);
-    CGContextDrawPath(context, kCGPathStroke);
+    CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
+    CGContextDrawPath(context, kCGPathFillStroke);
 }
 
 - (void)setPatternFill:(CGContextRef)context {
@@ -104,9 +105,9 @@ static struct point {
     CGContextClosePath(context);
     CGContextSaveGState(context);
     if (self.fill == FILL_STRIPED) [self setPatternFill:context];
+    else if (self.fill == FILL_OPEN) CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
     CGContextSetLineWidth(context, OUTLINE_WIDTH);
-    if (self.fill == FILL_OPEN) CGContextDrawPath(context, kCGPathStroke);
-    else CGContextDrawPath(context, kCGPathFillStroke);
+    CGContextDrawPath(context, kCGPathFillStroke);
     CGContextRestoreGState(context);
 }
 

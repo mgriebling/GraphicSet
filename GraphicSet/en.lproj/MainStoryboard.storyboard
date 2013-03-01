@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="9sO-Qg-h8l">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="9sO-Qg-h8l">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -455,18 +455,18 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="27n-hY-fNf">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="27n-hY-fNf">
                                 <color key="backgroundColor" red="0.90588241820000004" green="0.83529418710000003" blue="0.71764707569999997" alpha="1" colorSpace="deviceRGB"/>
                                 <gestureRecognizers/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="S7g-On-QXn">
                                     <size key="itemSize" width="98" height="65"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="41"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Card" id="wrV-8Z-aOO" customClass="SetCardViewCell">
-                                        <rect key="frame" x="5" y="5" width="98" height="65"/>
+                                        <rect key="frame" x="111" y="46" width="98" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="98" height="65"/>
@@ -489,7 +489,82 @@
                                             <outlet property="cardView" destination="vM9-iT-lLG" id="HT5-Co-qvT"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="752" reuseIdentifier="Card3" id="w5o-vK-Uvb" customClass="SetCardSummaryViewCell">
+                                        <rect key="frame" x="20" y="116" width="280" height="81"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="81"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="rA6-jx-nmH">
+                                                    <subviews>
+                                                        <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gRG-vv-WGT" customClass="SetCardView">
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" priority="999" constant="45" type="user" id="IVr-Vw-Rew"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Imq-X3-PNf" customClass="SetCardView">
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                        <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SWM-Zk-YnG" customClass="SetCardView">
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.85036496350364976" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="gRG-vv-WGT" firstAttribute="leading" secondItem="rA6-jx-nmH" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="0np-Xu-DAC"/>
+                                                        <constraint firstItem="Imq-X3-PNf" firstAttribute="top" secondItem="SWM-Zk-YnG" secondAttribute="top" type="user" id="5Sl-aY-2df"/>
+                                                        <constraint firstItem="SWM-Zk-YnG" firstAttribute="leading" secondItem="rA6-jx-nmH" secondAttribute="leading" constant="192" id="5ah-ic-zYp"/>
+                                                        <constraint firstItem="gRG-vv-WGT" firstAttribute="top" secondItem="rA6-jx-nmH" secondAttribute="top" constant="20" symbolic="YES" type="default" id="5xX-DX-OZ3"/>
+                                                        <constraint firstItem="Imq-X3-PNf" firstAttribute="centerX" secondItem="rA6-jx-nmH" secondAttribute="centerX" type="default" id="BtZ-cS-6X6"/>
+                                                        <constraint firstItem="Imq-X3-PNf" firstAttribute="centerY" secondItem="rA6-jx-nmH" secondAttribute="centerY" type="default" id="FhW-fG-Qua"/>
+                                                        <constraint firstAttribute="trailing" secondItem="gRG-vv-WGT" secondAttribute="trailing" constant="192" id="KX8-Dp-FFJ"/>
+                                                        <constraint firstItem="Imq-X3-PNf" firstAttribute="leading" secondItem="rA6-jx-nmH" secondAttribute="leading" constant="106" id="MgO-Xm-pVQ"/>
+                                                        <constraint firstItem="Imq-X3-PNf" firstAttribute="height" secondItem="SWM-Zk-YnG" secondAttribute="height" type="user" id="OTG-af-Qg8"/>
+                                                        <constraint firstItem="Imq-X3-PNf" firstAttribute="top" secondItem="gRG-vv-WGT" secondAttribute="top" type="user" id="Pbd-JW-WbB"/>
+                                                        <constraint firstItem="Imq-X3-PNf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gRG-vv-WGT" secondAttribute="trailing" constant="8" symbolic="YES" type="user" id="U2V-0b-FNn"/>
+                                                        <constraint firstItem="SWM-Zk-YnG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Imq-X3-PNf" secondAttribute="trailing" constant="8" symbolic="YES" type="user" id="gUD-BP-hnn"/>
+                                                        <constraint firstItem="Imq-X3-PNf" firstAttribute="height" secondItem="gRG-vv-WGT" secondAttribute="height" type="user" id="jVb-vI-4qp"/>
+                                                        <constraint firstAttribute="trailing" secondItem="SWM-Zk-YnG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="wVB-oO-QX4"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="rA6-jx-nmH" firstAttribute="leading" secondItem="w5o-vK-Uvb" secondAttribute="leading" type="user" id="lfG-KP-c3o"/>
+                                            <constraint firstItem="rA6-jx-nmH" firstAttribute="trailing" secondItem="w5o-vK-Uvb" secondAttribute="trailing" type="user" id="sCg-L5-1Gx"/>
+                                            <constraint firstItem="rA6-jx-nmH" firstAttribute="top" secondItem="w5o-vK-Uvb" secondAttribute="top" type="user" id="vo4-mw-gi2"/>
+                                        </constraints>
+                                        <size key="customSize" width="280" height="81"/>
+                                        <connections>
+                                            <outlet property="card1View" destination="gRG-vv-WGT" id="gWd-KB-Rdl"/>
+                                            <outlet property="card2View" destination="Imq-X3-PNf" id="WAh-oS-tDd"/>
+                                            <outlet property="card3View" destination="SWM-Zk-YnG" id="X5Y-57-VHk"/>
+                                        </connections>
+                                    </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Header" id="Olj-sJ-lau" customClass="HeaderCollectionView">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="41"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zz8-MV-VxI">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="zz8-MV-VxI" firstAttribute="centerX" secondItem="Olj-sJ-lau" secondAttribute="centerX" type="default" id="0PC-PW-C4v"/>
+                                        <constraint firstItem="zz8-MV-VxI" firstAttribute="centerY" secondItem="Olj-sJ-lau" secondAttribute="centerY" type="default" id="TXX-Pk-pkd"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="headerLabel" destination="zz8-MV-VxI" id="mqA-bK-3Dd"/>
+                                    </connections>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="x5X-Uf-ZM5" id="Afs-CG-1sM"/>
                                     <outlet property="delegate" destination="x5X-Uf-ZM5" id="3gh-qu-DQj"/>
@@ -660,6 +735,12 @@
         <class className="GameSettingsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GameSettingsViewController.h"/>
         </class>
+        <class className="HeaderCollectionView" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HeaderCollectionView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
@@ -687,6 +768,14 @@
                 <relationship kind="outlet" name="statusCard2" candidateClass="SetCardView"/>
                 <relationship kind="outlet" name="statusCard3" candidateClass="SetCardView"/>
                 <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SetCardSummaryViewCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SetCardSummaryViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="card1View" candidateClass="SetCardView"/>
+                <relationship kind="outlet" name="card2View" candidateClass="SetCardView"/>
+                <relationship kind="outlet" name="card3View" candidateClass="SetCardView"/>
             </relationships>
         </class>
         <class className="SetCardView" superclassName="UIView">
@@ -727,6 +816,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="bh4-S7-AhJ"/>
+        <segue reference="qid-vZ-xWk"/>
     </inferredMetricsTieBreakers>
 </document>

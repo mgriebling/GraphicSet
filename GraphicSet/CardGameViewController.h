@@ -19,5 +19,6 @@
 - (void)defineGame:(CardMatchingGame *)game;
 - (void)updateUIForGame:(CardMatchingGame *)game;
 - (BOOL)shouldDeleteCardsFromGame:(CardMatchingGame *)game;
+- (BOOL)supportsSummary;
 
 @end
